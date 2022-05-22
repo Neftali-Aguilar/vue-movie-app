@@ -12,12 +12,30 @@
       </div>
     </div>
   </header>
-
+  <MovieSlider/>
 </template>
 
 <script>
+import getMovies from '@/modules/movie/helpers/getMoviesOptions';
+import MovieSlider from '@/modules/movie/components/MovieSlider.vue';
+
 export default {
   name: 'MovieLayout',
+  components: { MovieSlider },
+  data() {
+    return {
+      movies: null,
+    };
+  },
+  methods: {
+    async getTheMovies() {
+      const response = await getMovies('popular');
+      const { results } = response.data;
+      this.movies = results
+        .sort(() => Math.random() - 0.5)
+        .splice(0, 3);
+    },
+  },
 };
 </script>
 
