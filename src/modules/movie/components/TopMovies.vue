@@ -1,17 +1,18 @@
 <template>
-  <div>
+  <div class="my-10">
+    <h2 class="text-3xl mb-5">Top Rated</h2>
     <swiper
       :modules="modules"
-      :slides-per-view="1"
-      :space-between="20"
-      :preloadImages="false"
+      :slides-per-view="3"
+      :space-between="10"
+      :loop="true"
       @swiper="onSwiper"
       @slideChange="onSlideChange"
       :preload-images="false"
-      lazy
+      lazy="true"
     >
       <swiper-slide v-for="movie in slideMovies" :key="movie.id">
-        <img class="w-full object-contain swiper-lazy" :src="`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`" alt="">
+        <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" alt="">
       </swiper-slide>
     </swiper>
   </div>
@@ -23,7 +24,7 @@ import { Lazy } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 export default {
-  name: 'MovieSlider',
+  name: 'TopMovies',
   components: {
     Swiper,
     SwiperSlide,
@@ -51,9 +52,9 @@ export default {
     };
   },
   async created() {
-    let popularMovies = await getMovies('popular');
-    popularMovies = await popularMovies.splice(0, this.movies);
-    this.slideMovies = popularMovies;
+    let topRated = await getMovies('top_rated');
+    topRated = await topRated.splice(0, this.movies);
+    this.slideMovies = topRated;
   },
 };
 </script>

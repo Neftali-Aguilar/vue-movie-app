@@ -12,29 +12,21 @@
       </div>
     </div>
   </header>
-  <MovieSlider/>
+  <MovieSlider :movies="10"/>
+  <div class="px-5">
+    <TopMovies :movies="8" />
+  </div>
 </template>
 
 <script>
-import getMovies from '@/modules/movie/helpers/getMoviesOptions';
 import MovieSlider from '@/modules/movie/components/MovieSlider.vue';
+import TopMovies from '@/modules/movie/components/TopMovies.vue';
 
 export default {
   name: 'MovieLayout',
-  components: { MovieSlider },
-  data() {
-    return {
-      movies: null,
-    };
-  },
-  methods: {
-    async getTheMovies() {
-      const response = await getMovies('popular');
-      const { results } = response.data;
-      this.movies = results
-        .sort(() => Math.random() - 0.5)
-        .splice(0, 3);
-    },
+  components: {
+    MovieSlider,
+    TopMovies,
   },
 };
 </script>
