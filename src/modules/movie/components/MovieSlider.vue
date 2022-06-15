@@ -11,14 +11,18 @@
       lazy
     >
       <swiper-slide v-for="movie in slideMovies" :key="movie.id">
-        <img class="w-full object-contain swiper-lazy" :src="`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`" alt="">
+        <img
+          class="w-full object-contain swiper-lazy"
+          :src="`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`"
+          alt=""
+        />
       </swiper-slide>
     </swiper>
   </div>
 </template>
 
 <script>
-import getMovies from '@/modules/movie/helpers/getMoviesOptions';
+import { getMovies } from '@/modules/movie/helpers/getMoviesOptions';
 import { Lazy } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
@@ -40,10 +44,8 @@ export default {
     };
   },
   setup() {
-    const onSwiper = () => {
-    };
-    const onSlideChange = () => {
-    };
+    const onSwiper = () => {};
+    const onSlideChange = () => {};
     return {
       onSwiper,
       onSlideChange,
@@ -58,6 +60,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
