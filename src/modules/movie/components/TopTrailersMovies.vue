@@ -2,19 +2,16 @@
   <div class="my-10">
     <h2 class="text-3xl mb-5">Trailers</h2>
     <swiper
-      :modules="modules"
       :slides-per-view="2"
       :space-between="10"
       :loop="true"
       @swiper="onSwiper"
       @slideChange="onSlideChange"
-      :preload-images="false"
-      lazy="true"
     >
       <swiper-slide v-for="{ videos } in trailers" :key="videos.id">
         <a
           v-for="video in videos.slice(0, 1)"
-          class="block"
+          class="block w-full"
           :href="`https://www.youtube.com/watch?v=${video.key}`"
           :key="video.id"
           target="_blank"
@@ -32,7 +29,6 @@
 
 <script>
 import { getMovies, getTrailers } from '@/modules/movie/helpers/getMoviesOptions';
-import { Lazy } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 export default {
@@ -59,7 +55,6 @@ export default {
     return {
       onSwiper,
       onSlideChange,
-      modules: [Lazy],
     };
   },
   async created() {

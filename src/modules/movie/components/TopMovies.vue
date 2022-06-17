@@ -2,17 +2,16 @@
   <div class="my-10">
     <h2 class="text-3xl mb-5">Top Rated</h2>
     <swiper
-      :modules="modules"
       :slides-per-view="3"
       :space-between="10"
       :loop="true"
       @swiper="onSwiper"
       @slideChange="onSlideChange"
-      :preload-images="false"
-      lazy="true"
     >
       <swiper-slide v-for="movie in slideMovies" :key="movie.id">
-        <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" alt="" />
+        <router-link :to="{ name: 'movie.show', params: { id: movie.id } }">
+          <img :src="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" alt="" />
+        </router-link>
       </swiper-slide>
     </swiper>
   </div>
@@ -20,7 +19,6 @@
 
 <script>
 import { getMovies } from '@/modules/movie/helpers/getMoviesOptions';
-import { Lazy } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 export default {
@@ -46,7 +44,6 @@ export default {
     return {
       onSwiper,
       onSlideChange,
-      modules: [Lazy],
     };
   },
   async created() {

@@ -11,30 +11,16 @@
   <div class="container mx-auto">
     <div class="flex">
       <div class="w-full">
-        <MovieSlider :movies="10" />
-        <div class="px-5">
-          <TopMovies :movies="8" />
-        </div>
-        <div class="px-5">
-          <TopTrailersMovies :movies="5" />
-        </div>
+        <router-view></router-view>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import MovieSlider from '@/modules/movie/components/MovieSlider.vue';
-import TopMovies from '@/modules/movie/components/TopMovies.vue';
-import TopTrailersMovies from '@/modules/movie/components/TopTrailersMovies.vue';
-
 export default {
   name: 'MovieLayout',
-  components: {
-    MovieSlider,
-    TopMovies,
-    TopTrailersMovies,
-  },
+  components: {},
 };
 </script>
 

@@ -7,6 +7,12 @@ export const getMovies = async (type = 'popular') => {
   const mixMovies = results.sort(() => Math.random() - 0.5);
   return mixMovies;
 };
+
+export const getMovie = async (movieId) => {
+  const theMovie = await movieApi.get(`/movie/${movieId}?api_key=${API_KEY}`);
+  return theMovie;
+};
+
 export const getTrailer = async (id) => {
   const trailer = await movieApi.get(`/movie/${id}/videos?api_key=${API_KEY}`);
   const { results } = await trailer.data;
