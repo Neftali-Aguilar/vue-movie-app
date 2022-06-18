@@ -1,4 +1,7 @@
 <template>
+  <div v-if="isLoading" class="w-screen h-screen text-center flex items-center justify-center">
+    <img src="https://tradinglatam.com/wp-content/uploads/2019/04/loading-gif-png-4.gif" alt="">
+  </div>
   <section v-if="character" class="container flex mx-auto p-5">
     <div class="w-4/12 pr-2">
       <img
@@ -52,8 +55,8 @@ export default {
       this.character = chararterInfo;
       const { data: characterPhotos } = await getCharacterPhotos(this.id);
       const fewPhotos = characterPhotos.profiles.slice(0, 5);
-      console.log(chararterInfo);
       this.characterPhotos = fewPhotos;
+      this.isLoading = false;
     },
   },
   created() {
