@@ -5,7 +5,9 @@
         <button @click="goBack">Go Back</button>
       </div>
       <div class="w-6/12 my-auto text-center">
-        <h1>Movietime</h1>
+        <router-link :to="{ name: 'movie-home'}">
+          <h1>Movietime</h1>
+        </router-link>
       </div>
       <div class="w-3/12 my-auto"></div>
     </div>
