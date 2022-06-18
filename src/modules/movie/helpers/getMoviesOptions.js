@@ -12,7 +12,10 @@ export const getMovie = async (movieId) => {
   const theMovie = await movieApi.get(`/movie/${movieId}?api_key=${API_KEY}`);
   return theMovie;
 };
-
+export const getMovieCredits = async (movieId) => {
+  const movieCredits = await movieApi.get(`/movie/${movieId}/credits?api_key=${API_KEY}`);
+  return movieCredits;
+};
 export const getTrailer = async (id) => {
   const trailer = await movieApi.get(`/movie/${id}/videos?api_key=${API_KEY}`);
   const { results } = await trailer.data;

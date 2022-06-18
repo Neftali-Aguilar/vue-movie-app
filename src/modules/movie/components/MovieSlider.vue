@@ -7,11 +7,14 @@
       @slideChange="onSlideChange"
     >
       <swiper-slide v-for="movie in slideMovies" :key="movie.id">
-        <img
-          class="w-full object-contain"
-          :src="`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`"
-          alt=""
-        />
+        <router-link :to="{name: 'movie.show', params: {id: movie.id}}">
+          <img
+            class="w-full object-contain"
+            :src="`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`"
+            alt=""
+          />
+          <h4>{{ movie.id }}</h4>
+        </router-link>
       </swiper-slide>
     </swiper>
   </div>
@@ -39,8 +42,10 @@ export default {
     };
   },
   setup() {
-    const onSwiper = () => {};
-    const onSlideChange = () => {};
+    const onSwiper = () => {
+    };
+    const onSlideChange = () => {
+    };
     return {
       onSwiper,
       onSlideChange,
