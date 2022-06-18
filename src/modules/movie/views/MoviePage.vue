@@ -1,6 +1,6 @@
 <template>
-  <div v-if="isLoading">
-    <h2>Cargando ...</h2>
+  <div v-if="isLoading" class="w-screen h-screen text-center flex items-center justify-center">
+    <img src="https://tradinglatam.com/wp-content/uploads/2019/04/loading-gif-png-4.gif" alt="">
   </div>
   <div v-if=" movie">
     <div class="container mx-auto">
@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-      <section class="flex p-5">
+      <section class="flex p-5 -mt-14">
         <div class="w-full">
           <ul class="font-semibold">
             <li>Release date: <span class="font-thin">{{ movie.release_date }}</span></li>
@@ -51,13 +51,13 @@
         <div class="w-full">
           <h2 class="text-xl uppercase mb-2">Cast</h2>
           <div class="flex flex-row overflow-x-scroll">
-            <router-link to=""
-                         v-for="characters in movieCharacters" :key="characters.id"
+            <router-link v-for="character in movieCharacters" :key="character.id"
+                         :to="{ name: 'character.show', params: {id: character.id}}"
             >
-              <div class="w-32 mr-3">
+              <div class="w-32 mr-3" v-if="character.profile_path">
                 <img
-                  :src="`https://image.tmdb.org/t/p/original/${characters.profile_path}`"
-                  :alt="characters.name"
+                  :src="`https://image.tmdb.org/t/p/original/${character.profile_path}`"
+                  :alt="character.name"
                   class="rounded-3xl"
                 >
               </div>

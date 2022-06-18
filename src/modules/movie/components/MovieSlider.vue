@@ -13,7 +13,6 @@
             :src="`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`"
             alt=""
           />
-          <h4>{{ movie.id }}</h4>
         </router-link>
       </swiper-slide>
     </swiper>

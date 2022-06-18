@@ -16,5 +16,13 @@ export default {
         id: parseInt(route.params.id),
       }),
     },
+    {
+      path: '/character/:id',
+      name: 'character.show',
+      component: () => import(/* webpackChunkName: "character-page" */ '@/modules/movie/views/CharacterInfo.vue'),
+      props: (route) => ({
+        id: parseInt(route.params.id),
+      }),
+    },
   ],
 };

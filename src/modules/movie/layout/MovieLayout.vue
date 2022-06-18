@@ -1,14 +1,16 @@
 <template>
-  <header class="container mx-auto py-5 drop-shadow-md shadow-black border-b-4">
+  <header class="container mx-auto p-5 drop-shadow-md shadow-black border-b-4 fixed bg-white z-50">
     <div class="flex">
-      <div class="w-3/12"></div>
-      <div class="w-6/12 text-center">
+      <div class="w-3/12 my-auto">
+        <button @click="goBack">Go Back</button>
+      </div>
+      <div class="w-6/12 my-auto text-center">
         <h1>Movietime</h1>
       </div>
-      <div class="w-3/12"></div>
+      <div class="w-3/12 my-auto"></div>
     </div>
   </header>
-  <div class="container mx-auto">
+  <div class="container mx-auto pt-16">
     <div class="flex">
       <div class="w-full">
         <router-view></router-view>
@@ -20,7 +22,11 @@
 <script>
 export default {
   name: 'MovieLayout',
-  components: {},
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 

@@ -38,3 +38,12 @@ export const getTrailers = async (movies) => {
     { videos: t4.data.results },
   ];
 };
+
+export const getCharacterInfo = async (id) => {
+  const character = await movieApi.get(`/person/${id}?api_key=${API_KEY}`);
+  return character;
+};
+export const getCharacterPhotos = async (id) => {
+  const characterPhotos = await movieApi.get(`/person/${id}/images?api_key=${API_KEY}`);
+  return characterPhotos;
+};
