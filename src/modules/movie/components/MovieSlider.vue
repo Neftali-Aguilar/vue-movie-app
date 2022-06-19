@@ -3,15 +3,13 @@
     <swiper
       :modules="modules"
       :slides-per-view="1"
-      :space-between="0"
-      @swiper="onSwiper"
+      :space-between="10"
       :pagination="{ clickable: true }"
-      @slideChange="onSlideChange"
     >
       <swiper-slide v-for="movie in slideMovies" :key="movie.id">
         <router-link :to="{name: 'movie.show', params: {id: movie.id}}">
           <img
-            class="w-full object-cover h-80"
+            class="w-full object-cover h-80 swiper-lazy"
             :src="`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`"
             alt=""
           />

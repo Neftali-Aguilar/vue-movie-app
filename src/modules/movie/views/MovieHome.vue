@@ -1,7 +1,7 @@
 <template>
-  <MovieSlider :movies="8"/>
+  <MovieSlider :movies="5"/>
   <div class="px-5">
-    <TopMovies :movies="20"/>
+    <TopMovies :movies="10"/>
   </div>
   <div class="px-5">
     <TopTrailersMovies :movies="5"/>
