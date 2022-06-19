@@ -1,5 +1,5 @@
 <template>
-  <MovieSlider :movies="10"/>
+  <MovieSlider :movies="8"/>
   <div class="px-5">
     <TopMovies :movies="20"/>
   </div>
