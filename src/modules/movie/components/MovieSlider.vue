@@ -5,6 +5,7 @@
       :slides-per-view="1"
       :space-between="10"
       :pagination="{ clickable: true }"
+      loop
     >
       <swiper-slide v-for="movie in slideMovies" :key="movie.id">
         <router-link :to="{name: 'movie.show', params: {id: movie.id}}">

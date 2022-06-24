@@ -47,3 +47,7 @@ export const getCharacterPhotos = async (id) => {
   const characterPhotos = await movieApi.get(`/person/${id}/images?api_key=${API_KEY}`);
   return characterPhotos;
 };
+export const getCharacterMovies = async (id) => {
+  const characterMovies = await movieApi.get(`/person/${id}/movie_credits?api_key=${API_KEY}`);
+  return characterMovies;
+};
